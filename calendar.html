@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Festival Calendar - Monastery360</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Sikkim Mountain Region Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Page Title: Playfair Display for elegance -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500&display=swap" rel="stylesheet">
+    <!-- Brand: Cinzel Decorative for monastery brand -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap" rel="stylesheet">
+    <!-- Headers: Cormorant Garamond for heritage elegance -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+    <!-- Body: Crimson Text for readability -->
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    <!-- Sanskrit/Tibetan support -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'sikkim-primary': '#8B2635',
+                        'sikkim-gold': '#D4AF37',
+                        'sikkim-blue': '#2563EB',
+                        'sikkim-green': '#059669',
+                        'sikkim-orange': '#EA580C',
+                        'sikkim-cream': '#FEF3E2',
+                        'sikkim-light': '#F8FAFC',
+                        'sikkim-dark': '#1E293B',
+                        'sikkim-accent': '#0891B2'
+                    },
+                    fontFamily: {
+                        'monastery': ['Cinzel Decorative', 'serif'],
+                        'title': ['Playfair Display', 'serif'],
+                        'heritage': ['Cormorant Garamond', 'serif'],
+                        'body': ['Crimson Text', 'serif'],
+                        'sanskrit': ['Noto Serif Devanagari', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --sikkim-primary: #8B2635;
+            --sikkim-gold: #D4AF37;
+            --sikkim-blue: #2563EB;
+            --sikkim-green: #059669;
+            --sikkim-orange: #EA580C;
+            --sikkim-accent: #0891B2;
+            --sikkim-cream: #FEF3E2;
+            --sikkim-light: #F8FAFC;
+            --sikkim-dark: #1E293B;
+            --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --shadow-md: 0 6px 12px -2px rgba(0, 0, 0, 0.15), 0 4px 8px -2px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 15px 25px -5px rgba(0, 0, 0, 0.15), 0 8px 12px -4px rgba(0, 0, 0, 0.1);
+        }
+        body { font-family: 'Crimson Text', serif; font-weight: 400; line-height: 1.6; letter-spacing: 0.01em; }
+        .font-monastery { font-family: 'Cinzel Decorative', serif; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; }
+        .font-title { font-family: 'Playfair Display', serif; font-weight: 700; letter-spacing: 0.02em; }
+        .font-heritage { font-family: 'Cormorant Garamond', serif; font-weight: 500; letter-spacing: 0.02em; }
+        .font-body { font-family: 'Crimson Text', serif; font-weight: 400; letter-spacing: 0.01em; line-height: 1.7; }
+        
+        .nav-link {
+            color: var(--sikkim-dark);
+            font-weight: 500;
+            padding: 10px 18px;
+            border-radius: 10px;
+            transition: var(--transition);
+            text-decoration: none;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 17px;
+            letter-spacing: 0.02em;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: var(--sikkim-primary);
+            background-color: var(--sikkim-cream);
+            transform: translateY(-1px);
+        }
+        .nav-link.active { font-weight: 600; }
+        
+        .text-gradient-refined {
+            background: linear-gradient(135deg, var(--sikkim-primary) 0%, var(--sikkim-blue) 50%, var(--sikkim-green) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .festival-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .festival-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .festival-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 40px rgba(212, 175, 55, 0.2);
+        }
+        
+        .festival-card:hover::before {
+            left: 100%;
+        }
+        
+        .monthly-calendar {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: var(--shadow-md);
+            border: 2px solid var(--sikkim-gold);
+            margin-bottom: 2rem;
+        }
+        
+        .month-header {
+            background: linear-gradient(135deg, var(--sikkim-primary), var(--sikkim-blue));
+            color: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .month-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            animation: shimmer 3s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        
+        .festival-item {
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 12px;
+            padding: 1.25rem;
+            margin-bottom: 0.75rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            border-left: 4px solid var(--sikkim-gold);
+            cursor: pointer;
+        }
+        
+        .festival-item:hover {
+            transform: translateX(8px);
+            box-shadow: var(--shadow-md);
+            border-left-color: var(--sikkim-primary);
+            background: rgba(255, 255, 255, 0.95);
+        }
+        
+        .festival-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .stats-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            border: 2px solid var(--sikkim-gold);
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+        }
+        
+        .stats-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--sikkim-primary);
+        }
+        
+        .calendar-navigation {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow-md);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .month-nav-button {
+            transition: var(--transition);
+            border-radius: 8px;
+            font-family: 'Cormorant Garamond', serif;
+        }
+        
+        .month-nav-button:hover {
+            transform: translateY(-2px);
+        }
+        
+        .festival-type-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            margin-top: 8px;
+        }
+        
+        .badge-buddhist {
+            background: rgba(37, 99, 235, 0.15);
+            color: var(--sikkim-blue);
+        }
+        
+        .badge-hindu {
+            background: rgba(234, 88, 12, 0.15);
+            color: var(--sikkim-orange);
+        }
+        
+        .badge-indigenous {
+            background: rgba(5, 150, 105, 0.15);
+            color: var(--sikkim-green);
+        }
+        
+        .badge-cultural {
+            background: rgba(139, 38, 53, 0.15);
+            color: var(--sikkim-primary);
+        }
+        
+        .festival-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 12px;
+            padding-top: 8px;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            font-size: 12px;
+            color: #6B7280;
+        }
+        
+        .festival-location {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        
+        @media (max-width: 768px) {
+            .festival-card {
+                padding: 1.5rem;
+            }
+            
+            .monthly-calendar {
+                padding: 1.5rem;
+            }
+            
+            .month-header {
+                padding: 1rem;
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-sikkim-light text-sikkim-dark font-body">
+    
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-white shadow-lg border-b border-sikkim-gold/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-sikkim-primary rounded-full flex items-center justify-center">
+                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10 2L3 7v11a2 2 0 002 2h10a2 2 0 002-2V7l-7-5z"/>
+                        </svg>
+                    </div>
+                    <h1 class="text-xl font-bold text-sikkim-primary font-monastery">Monastery360</h1>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="monastery.html" class="nav-link">Monasteries</a>
+                    <a href="mapSikkim.html" class="nav-link">Map</a>
+                    <a href="calendar.html" class="nav-link active">Calendar</a>
+                    <a href="archives.html" class="nav-link">Archives</a>
+                </div>
+                <div class="md:hidden">
+                    <button class="text-sikkim-primary hover:text-sikkim-gold">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="py-20 bg-gradient-to-br from-sikkim-cream via-white to-sikkim-light">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <div class="text-6xl mb-6">🎭</div>
+            <h1 class="text-6xl md:text-7xl font-bold mb-6 text-gradient-refined font-title">
+                Sacred Celebrations
+            </h1>
+            <p class="text-xl text-gray-700 mb-12 max-w-4xl mx-auto font-body leading-relaxed">
+                Experience the vibrant spiritual festivals of Sikkim's monasteries throughout the year. 
+                These celebrations reflect the harmonious blend of <strong class="text-sikkim-primary font-heritage">Buddhist</strong>,
+                <strong class="text-sikkim-blue font-heritage">Hindu</strong>, and <strong class="text-sikkim-green font-heritage">indigenous traditions</strong>.
+            </p>
+            <!-- Stats -->
+            <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-12">
+                <div class="stats-card">
+                    <div class="text-4xl font-bold text-sikkim-primary font-title mb-2">30+</div>
+                    <p class="text-sikkim-dark font-heritage">Annual Festivals</p>
+                </div>
+                <div class="stats-card">
+                    <div class="text-4xl font-bold text-sikkim-blue font-title mb-2">50+</div>
+                    <p class="text-sikkim-dark font-heritage">Monastery Venues</p>
+                </div>
+                <div class="stats-card">
+                    <div class="text-4xl font-bold text-sikkim-green font-title mb-2">4</div>
+                    <p class="text-sikkim-dark font-heritage">Cultural Traditions</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Festivals -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-gradient-refined mb-12 text-center font-title">Upcoming Sacred Celebrations</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
+                <!-- Losar Festival -->
+                <div class="festival-card">
+                    <div class="text-5xl mb-6">🏮</div>
+                    <h3 class="text-2xl font-bold text-sikkim-primary mb-4 font-heritage">Losar Festival</h3>
+                    <p class="text-gray-600 mb-6 font-body">
+                        Most significant Tibetan Buddhist festival marking the New Year with colorful decorations, traditional dances, and monastery prayers spanning 15 days of celebration.
+                    </p>
+                    <div class="festival-meta">
+                        <span class="text-sikkim-blue font-heritage">February 28</span>
+                        <span class="festival-type-badge badge-buddhist">BUDDHIST</span>
+                    </div>
+                </div>
+
+                <!-- Pang Lhabsol -->
+                <div class="festival-card">
+                    <div class="text-5xl mb-6">⛰️</div>
+                    <h3 class="text-2xl font-bold text-sikkim-blue mb-4 font-heritage">Pang Lhabsol</h3>
+                    <p class="text-gray-600 mb-6 font-body">
+                        Unique festival consecrating Mount Khangchendzonga as Sikkim's guardian deity. Features spectacular warrior dances and masked performances at Pemayangtse Monastery.
+                    </p>
+                    <div class="festival-meta">
+                        <span class="text-sikkim-blue font-heritage">September 7</span>
+                        <span class="festival-type-badge badge-buddhist">BUDDHIST</span>
+                    </div>
+                </div>
+
+                <!-- Bumchu Festival -->
+                <div class="festival-card">
+                    <div class="text-5xl mb-6">💧</div>
+                    <h3 class="text-2xl font-bold text-sikkim-orange mb-4 font-heritage">Bumchu Festival</h3>
+                    <p class="text-gray-600 mb-6 font-body">
+                        Sacred water ceremony at Tashiding Monastery where holy water is blessed and distributed to devotees for protection and prosperity during the full moon.
+                    </p>
+                    <div class="festival-meta">
+                        <span class="text-sikkim-blue font-heritage">March 15</span>
+                        <span class="festival-type-badge badge-buddhist">BUDDHIST</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Annual Festival Calendar -->
+    <section class="py-20 bg-sikkim-light">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-gradient-refined mb-12 text-center font-title">Annual Festival Calendar</h2>
+            
+            <!-- Calendar Navigation -->
+            <div class="calendar-navigation">
+                <h3 class="text-2xl font-bold text-sikkim-primary mb-4 font-heritage">Navigate by Season</h3>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <button onclick="showSeason('winter')" class="month-nav-button px-6 py-3 bg-sikkim-primary text-white hover:bg-sikkim-primary/90 transition-colors font-heritage">Winter (Dec-Feb)</button>
+                    <button onclick="showSeason('spring')" class="month-nav-button px-6 py-3 bg-sikkim-green text-white hover:bg-sikkim-green/90 transition-colors font-heritage">Spring (Mar-May)</button>
+                    <button onclick="showSeason('monsoon')" class="month-nav-button px-6 py-3 bg-sikkim-blue text-white hover:bg-sikkim-blue/90 transition-colors font-heritage">Monsoon (Jun-Aug)</button>
+                    <button onclick="showSeason('autumn')" class="month-nav-button px-6 py-3 bg-sikkim-orange text-white hover:bg-sikkim-orange/90 transition-colors font-heritage">Autumn (Sep-Nov)</button>
+                    <button onclick="showAllMonths()" class="month-nav-button px-6 py-3 bg-sikkim-gold text-white hover:bg-sikkim-gold/90 transition-colors font-heritage">View All</button>
+                </div>
+            </div>
+
+            <!-- Monthly Calendar Grid -->
+            <div class="grid lg:grid-cols-2 xl:grid-cols-3 gap-8">
+                
+                <!-- January -->
+                <div class="monthly-calendar season-winter" data-season="winter">
+                    <div class="month-header">January</div>
+                    <div class="festival-item" onclick="showFestivalDetail('nyenpa-guzom')">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <span class="text-2xl mr-3">🏔️</span>
+                                <div>
+                                    <h4 class="font-bold text-sikkim-primary font-heritage">Nyenpa Guzom</h4>
+                                    <p class="text-sm text-gray-600 font-body">Tamang New Year Celebration</p>
+                                </div>
+                            </div>
+                            <span class="text-xs text-sikkim-blue font-heritage">Jan 5</span>
+                        </div>
+                        <span class="festival-type-badge badge-indigenous">INDIGENOUS</span>
+                    </div>
+                    <div class="festival-item" onclick="showFestivalDetail('maghe-sankranti')">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <span class="text-2xl mr-3">🌾</span>
+                                <div>
+                                    <h4 class="font-bold text-sikkim-primary font-heritage">Maghe Sankranti</h4>
+                                    <p class="text-sm text-gray-600 font-body">Hindu Harvest Festival</p>
+                                </div>
+                            </div>
+                            <span class="text-xs text-sikkim-blue font-heritage">Jan 14</span>
+                        </div>
+                        <span class="festival-type-badge badge-hindu">HINDU</span>
+                    </div>
+                    <div class="festival-item" onclick="showFestivalDetail('sonam-lochar')">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <span class="text-2xl mr-3">🎊</span>
+                                <div>
+                                    <h4 class="font-bold text-sikkim-primary font-heritage">Sonam Lochar</h4>
+                                    <p class="text-sm text-gray-600 font-body">Tamang Spring Festival</p>
+                                </div>
+                            </div>
+                            <span class="text-xs text-sikkim-blue font-heritage">Jan 30</span>
+                        </div>
+                        <span class="festival-type-badge badge-cultural">CULTURAL</span>
+                    </div>
+                </div>
+
+                <!-- February -->
+                <div class="monthly-calendar season-winter" data-season="winter">
+                    <div class="month-header">February</div>
+                    <div class="festival-item" onclick="showFestivalDetail('losar')">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <span class="text-2xl mr-3">🏮</span>
+                                <div>
+                                    <h4 class="font-bold text-sikkim-primary font-heritage">Losar (Tibetan New Year)</h4>
+                                    <p class="text-sm text-gray-600 font-body">Most Sacred Buddhist Festival</p>
+                                </div>
+                            </div>
+                            <span class="text-xs text-sikkim-blue font-heritage">Feb 28</span>
+                        </div>
+                        <span class="festival-type-badge badge-buddhist">BUDDHIST</span>
+                    </div>
+                </div>
+
+                <!-- March -->
+                <div class="monthly-calendar season-spring" data-season="spring">
+                    <div class="month-header">March</div>
+                    <div class="festival-item" onclick="showFestivalDetail('bumchu')">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <span class="text-2xl mr-3">💧</span>
+                                <div>
+                                    <h4 class="font-bold text-sikkim-primary font-heritage">Bumchu Festival</h4>
+                                    <p class="text-sm text-gray-600 font-body">Sacred Water Ceremony</p>
+                                </div>
+                            </div>
+                            <span class="text-xs text-sikkim-blue font-heritage">Mar 15</span>
+                        </div>
+                        <span class="festival-type-badge badge-buddhist">BUDDHIST</span>
+                    </div>
+                </div>
+
+                <!-- May -->
+                <div class="monthly-calendar season-spring" data-season="spring">
+                    <div class="month-header">May</div>
+                    <div class="festival-item" onclick="showFestivalDetail('buddha-purnima')">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <span class="text-2xl mr-3">🕯️</span>
+                                <div>
+                                    <h4 class="font-bold text-sikkim-primary font-heritage">Buddha Purnima</h4>
+                                    <p class="text-sm text-gray-600 font-body">Buddha's Birth & Enlightenment</p>
+                                </div>
+                            </div>
+                            <span class="text-xs text-sikkim-blue font-heritage">May 12</span>
+                        </div>
+                        <span class="festival-type-badge badge-buddhist">BUDDHIST</span>
+                    </div>
+                    <div class="festival-item" onclick="showFestivalDetail('sikkim-day')">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <span class="text-2xl mr-3">🏛️</span>
+                                <div>
+                                    <h4 class="font-bold text-sikkim-primary font-heritage">Sikkim State Day</h4>
+                                    <p class="text-sm text-gray-600 font-body">State Heritage Celebration</p>
+                                </div>
+                            </div>
+                            <span class="text-xs text-sikkim-blue font-heritage">May 16</span>
+                        </div>
+                        <span class="festival-type-badge badge-cultural">CULTURAL</span>
+                    </div>
+                    <div class="festival-item" onclick="showFestivalDetail('saga-dawa')">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <span class="text-2xl mr-3">📿</span>
+                                <div>
+                                    <h4 class="font-bold text-sikkim-primary font-heritage">Saga Dawa</h4>
+                                    <p class="text-sm text-gray-600 font-body">Triple Blessed Festival</p>
+                                </div>
+                            </div>
+                            <span class="text-xs text-sikkim-blue font-heritage">May 26</span>
+                        </div>
+                        <span class="festival-type-badge badge-buddhist">BUDDHIST</span>
+                    </div>
+                </div>
+
+                <!-- July -->
+                <div class="monthly-calendar season-monsoon" data-season="monsoon">
+                    <div class="month-header">July</div>
+                    <div class="festival-item" onclick="showFestivalDetail('bhanu-jayanti')">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <span class="text-2xl mr-3">📚</span>
+                                <div>
+                                    <h4 class="font-bold text-sikkim-primary font-heritage">Bhanu Jayanti</h4>
+                                    <p class="text-sm text-gray-600 font-body">Nepali Poet's Birthday</p>
+                                </div>
+                            </div>
+                            <span class="text-xs text-sikkim-blue font-heritage">Jul 13</span>
+                        </div>
+                        <span class="festival-type-badge badge-cultural">CULTURAL</span>
+                    </div>
+                    <div class="festival-item" onclick="showFestivalDetail('drukpa-tshechi')">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <span class="text-2xl mr-3">🎭</span>
+                                <div>
+                                    <h4 class="font-bold text-sikkim-primary font-heritage">Drukpa Tshechi</h4>
+                                    <p class="text-sm text-gray-600 font-body">Buddha's First Sermon</p>
+                                </div>
+                            </div>
+                            <span class="text-xs text-sikkim-blue font-heritage">Jul 28</span>
+                        </div>
+                        <span class="festival-type-badge badge-buddhist">BUDDHIST</span>
+                    </div>
+                </div>
+
+                <!-- August -->
+                <div class="monthly-calendar season-monsoon" data-season="monsoon">
+                    <div class="month-header">August</div>
+                    <div class="festival-item" onclick="showFestivalDetail('guru-rinpoche')">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <span class="text-2xl mr-3">🙏</span>
+                                <div>
+                                    <h4 class="font-bold text-sikkim-primary font-heritage">Guru Rinpoche Birthday</h4>
+                                    <p class="text-sm text-gray-600 font-body">Padmasambhava's Birth</p>
+                                </div>
+                            </div>
+                            <span class="text-xs text-sikkim-blue font-heritage">Aug 4</span>
+                        </div>
+                        <span class="festival-type-badge badge-buddhist">BUDDHIST</span>
+                    </div>
+                    <div class="festival-item" onclick="showFestivalDetail('tendong-lho-rum')">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <span class="text-2xl mr-3">⛰️</span>
+                                <div>
+                                    <h4 class="font-bold text-sikkim-primary font-heritage">Tendong Lho Rum Faat</h4>
+                                    <p class="text-sm text-gray-600 font-body">Mountain Deity Festival</p>
+                                </div>
+                            </div>
+                            <span class="text-xs text-sikkim-blue font-heritage">Aug 8</span>
+                        </div>
+                        <span class="festival-type-badge badge-indigenous">INDIGENOUS</span>
+                    </div>
+                </div>
+
+                <!-- September -->
+                <div class="monthly-calendar season-autumn" data-season="autumn">
+                    <div class="month-header">September</div>
+                    <div class="festival-item" onclick="showFestivalDetail('indra-jatra')">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <span class="text-2xl mr-3">🌧️</span>
+                                <div>
+                                    <h4 class="font-bold text-sikkim-primary font-heritage">Indra Jatra</h4>
+                                    <p class="text-sm text-gray-600 font-body">Rain God Festival</p>
+                                </div>
+                            </div>
+                            <span class="text-xs text-sikkim-blue font-heritage">Sep 6</span>
+                        </div>
+                        <span class="festival-type-badge badge-hindu">HINDU</span>
+                    </div>
+                    <div class="festival-item" onclick="showFestivalDetail('pang-lhabsol')">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <span class="text-2xl mr-3">🏔️</span>
+                                <div>
+                                    <h4 class="font-bold text-sikkim-primary font-heritage">Pang Lhabsol</h4>
+                                    <p class="text-sm text-gray-600 font-body">Guardian Deity Festival</p>
+                                </div>
+                            </div>
+                            <span class="text-xs text-sikkim-blue font-heritage">Sep 7</span>
+                        </div>
+                        <span class="festival-type-badge badge-buddhist">BUDDHIST</span>
+                    </div>
+                </div>
+
+                <!-- October -->
+                <div class="monthly-calendar season-autumn" data-season="autumn">
+                    <div class="month-header">October</div>
+                    <div class="festival-item" onclick="showFestivalDetail('durga-puja')">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <span class="text-2xl mr-3">🌺</span>
+                                <div>
+                                    <h4 class="font-bold text-sikkim-primary font-heritage">Durga Puja</h4>
+                                    <p class="text-sm text-gray-600 font-body">Goddess Durga Worship</p>
+                                </div>
+                            </div>
+                            <span class="text-xs text-sikkim-blue font-heritage">Oct 2</span>
+                        </div>
+                        <span class="festival-type-badge badge-hindu">HINDU</span>
+                    </div>
+                </div>
+
+                <!-- November -->
+                <div class="monthly-calendar season-autumn" data-season="autumn">
+                    <div class="month-header">November</div>
+                    <div class="festival-item" onclick="showFestivalDetail('tihar-diwali')">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <span class="text-2xl mr-3">🪔</span>
+                                <div>
+                                    <h4 class="font-bold text-sikkim-primary font-heritage">Tihar/Diwali</h4>
+                                    <p class="text-sm text-gray-600 font-body">Festival of Lights</p>
+                                </div>
+                            </div>
+                            <span class="text-xs text-sikkim-blue font-heritage">Nov 1</span>
+                        </div>
+                        <span class="festival-type-badge badge-hindu">HINDU</span>
+                    </div>
+                    <div class="festival-item" onclick="showFestivalDetail('lhabab-duchen')">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <span class="text-2xl mr-3">☸️</span>
+                                <div>
+                                    <h4 class="font-bold text-sikkim-primary font-heritage">Lhabab Duchen</h4>
+                                    <p class="text-sm text-gray-600 font-body">Buddha's Heavenly Descent</p>
+                                </div>
+                            </div>
+                            <span class="text-xs text-sikkim-blue font-heritage">Nov 11</span>
+                        </div>
+                        <span class="festival-type-badge badge-buddhist">BUDDHIST</span>
+                    </div>
+                </div>
+
+                <!-- December -->
+                <div class="monthly-calendar season-winter" data-season="winter">
+                    <div class="month-header">December</div>
+                    <div class="festival-item" onclick="showFestivalDetail('barahimizong')">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <span class="text-2xl mr-3">🎪</span>
+                                <div>
+                                    <h4 class="font-bold text-sikkim-primary font-heritage">Barahimizong</h4>
+                                    <p class="text-sm text-gray-600 font-body">Lepcha Cultural Festival</p>
+                                </div>
+                            </div>
+                            <span class="text-xs text-sikkim-blue font-heritage">Dec 9</span>
+                        </div>
+                        <span class="festival-type-badge badge-indigenous">INDIGENOUS</span>
+                    </div>
+                    <div class="festival-item" onclick="showFestivalDetail('kagyed-dance')">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <span class="text-2xl mr-3">🎭</span>
+                                <div>
+                                    <h4 class="font-bold text-sikkim-primary font-heritage">Kagyed Dance</h4>
+                                    <p class="text-sm text-gray-600 font-body">Sacred Masked Dances</p>
+                                </div>
+                            </div>
+                            <span class="text-xs text-sikkim-blue font-heritage">Dec 18</span>
+                        </div>
+                        <span class="festival-type-badge badge-buddhist">BUDDHIST</span>
+                    </div>
+                    <div class="festival-item" onclick="showFestivalDetail('losoong')">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <span class="text-2xl mr-3">🌾</span>
+                                <div>
+                                    <h4 class="font-bold text-sikkim-primary font-heritage">Losoong/Namsoong</h4>
+                                    <p class="text-sm text-gray-600 font-body">Harvest Festival</p>
+                                </div>
+                            </div>
+                            <span class="text-xs text-sikkim-blue font-heritage">Dec 22</span>
+                        </div>
+                        <span class="festival-type-badge badge-cultural">CULTURAL</span>
+                    </div>
+                    <div class="festival-item" onclick="showFestivalDetail('tamu-lochar')">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <span class="text-2xl mr-3">🎊</span>
+                                <div>
+                                    <h4 class="font-bold text-sikkim-primary font-heritage">Tamu Lochar</h4>
+                                    <p class="text-sm text-gray-600 font-body">Gurung New Year</p>
+                                </div>
+                            </div>
+                            <span class="text-xs text-sikkim-blue font-heritage">Dec 30</span>
+                        </div>
+                        <span class="festival-type-badge badge-cultural">CULTURAL</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-white text-center">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-gradient-refined mb-8 font-title">Experience Sacred Celebrations</h2>
+            <p class="text-xl text-gray-700 mb-8 font-body">
+                Sikkim's festivals reflect the harmonious blend of <strong class="text-sikkim-primary font-heritage">Buddhist wisdom</strong>, 
+                <strong class="text-sikkim-blue font-heritage">Hindu devotion</strong>, and <strong class="text-sikkim-green font-heritage">indigenous heritage</strong>. 
+                These celebrations offer visitors unique opportunities to witness centuries-old rituals, colorful mask dances, 
+                and spiritual ceremonies in some of the most beautiful monastery settings in the Himalayas.
+            </p>
+            <a href="monastery.html" class="inline-flex items-center px-8 py-4 bg-sikkim-primary text-white rounded-xl hover:bg-sikkim-primary/90 transition-colors font-heritage text-lg">
+                Explore Monasteries
+                <svg class="w-5 h-5 ml-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M10 2L3 7v11a2 2 0 002 2h10a2 2 0 002-2V7l-7-5z"/>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-sikkim-dark text-white py-16">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-10 h-10 bg-sikkim-gold rounded-full flex items-center justify-center">
+                            <svg class="w-6 h-6 text-sikkim-dark" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M10 2L3 7v11a2 2 0 002 2h10a2 2 0 002-2V7l-7-5z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold font-monastery">Monastery360</h3>
+                    </div>
+                    <p class="text-gray-300 leading-relaxed font-body">
+                        Celebrating the sacred heritage and vibrant festivals of Sikkim, connecting communities through spiritual traditions and cultural diversity.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-6 text-sikkim-gold font-heritage">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-gray-300 hover:text-sikkim-gold font-body">Home</a></li>
+                        <li><a href="monastery.html" class="text-gray-300 hover:text-sikkim-gold font-body">Monasteries</a></li>
+                        <li><a href="mapSikkim.html" class="text-gray-300 hover:text-sikkim-gold font-body">Map</a></li>
+                        <li><a href="archives.html" class="text-gray-300 hover:text-sikkim-gold font-body">Archives</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-6 text-sikkim-gold font-heritage">Connect</h4>
+                    <div class="space-y-3 text-gray-300">
+                        <p class="font-body">📧 wisdom@monastery360.org</p>
+                        <p class="font-body">📞 +91 XXX XXX XXXX</p>
+                        <p class="font-body">🏔️ Gangtok, Sikkim, India</p>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-12 pt-8 text-center">
+                <p class="text-gray-400 font-body">© 2025 Monastery360. Honoring Himalayan heritage with authenticity and respect.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function showSeason(season) {
+            // Hide all calendar cards
+            const allCalendars = document.querySelectorAll('.monthly-calendar');
+            allCalendars.forEach(calendar => {
+                calendar.style.display = 'none';
+            });
+            
+            // Show calendars for selected season
+            const seasonCalendars = document.querySelectorAll(`.season-${season}`);
+            seasonCalendars.forEach(calendar => {
+                calendar.style.display = 'block';
+                calendar.style.animation = 'fadeInUp 0.6s ease-out';
+            });
+        }
+
+        function showAllMonths() {
+            const allCalendars = document.querySelectorAll('.monthly-calendar');
+            allCalendars.forEach((calendar, index) => {
+                calendar.style.display = 'block';
+                calendar.style.animation = `fadeInUp 0.6s ease-out ${index * 0.1}s both`;
+            });
+        }
+
+        function showFestivalDetail(festivalId) {
+            // You can implement detailed modals or expand cards here
+            console.log('Showing details for:', festivalId);
+        }
+
+        // Add fade-in animation CSS
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Initialize - show all months by default
+        document.addEventListener('DOMContentLoaded', showAllMonths);
+    </script>
+</body>
+</html>

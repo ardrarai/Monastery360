@@ -1,0 +1,501 @@
+/* ===== MONASTERY360 - REFINED SIKKIM DESIGN SYSTEM ===== */
+
+:root {
+    /* Refined Tourist-Friendly Color Palette */
+    --sikkim-primary: #8B2635;        /* Deep maroon - monastery robes */
+    --sikkim-gold: #D4AF37;           /* Elegant gold - temple accents */
+    --sikkim-blue: #2563EB;           /* Royal blue - prayer flags */
+    --sikkim-green: #059669;          /* Forest green - nature */
+    --sikkim-orange: #EA580C;         /* Warm orange - festivals */
+    --sikkim-accent: #0891B2;         /* Turquoise - decorative */
+
+    /* Base Colors */
+    --sikkim-cream: #FEF3E2;          /* Warm cream background */
+    --sikkim-light: #F8FAFC;          /* Light gray background */
+    --sikkim-dark: #1E293B;           /* Dark text */
+    --sikkim-white: #FFFFFF;          /* Pure white */
+
+    /* Flag Colors (Authentic) */
+    --flag-white: #FFFFFF;
+    --flag-blue: #0066CC;
+    --flag-red: #DC2626;
+    --flag-green: #16A34A;
+    --flag-yellow: #EAB308;
+
+    /* Enhanced Gradients */
+    --gradient-primary: linear-gradient(135deg, var(--sikkim-primary) 0%, #A73545 100%);
+    --gradient-gold: linear-gradient(135deg, var(--sikkim-gold) 0%, #B8941F 100%);
+    --gradient-blue: linear-gradient(135deg, var(--sikkim-blue) 0%, #1D4ED8 100%);
+    --gradient-text: linear-gradient(135deg, var(--sikkim-primary) 0%, var(--sikkim-blue) 50%, var(--sikkim-green) 100%);
+    --gradient-hero: linear-gradient(135deg, var(--sikkim-cream) 0%, var(--sikkim-light) 100%);
+
+    /* Enhanced Shadows */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    --shadow-gold: 0 10px 30px rgba(212, 175, 55, 0.3);
+    --shadow-glow: 0 0 40px rgba(212, 175, 55, 0.4);
+
+    /* Enhanced Transitions */
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: all 0.15s ease-out;
+    --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    --bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* ===== TYPOGRAPHY ===== */
+.font-serif {
+    font-family: 'Playfair Display', serif;
+}
+
+.text-gradient-refined {
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ===== REFINED NAVIGATION ===== */
+.nav-link {
+    color: var(--sikkim-dark);
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: var(--transition);
+    position: relative;
+    text-decoration: none;
+}
+
+.nav-link:hover {
+    color: var(--sikkim-primary);
+    background-color: var(--sikkim-cream);
+}
+
+.nav-link.active {
+    color: var(--sikkim-primary);
+    background-color: var(--sikkim-cream);
+    font-weight: 600;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--sikkim-gold);
+    transition: var(--transition);
+    transform: translateX(-50%);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 80%;
+}
+
+/* ===== ENHANCED BUTTONS ===== */
+.btn-primary, .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 32px;
+    border-radius: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition);
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary {
+    background: var(--gradient-primary);
+    color: white;
+}
+
+.btn-secondary {
+    background: white;
+    color: var(--sikkim-primary);
+    border: 2px solid var(--sikkim-primary);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-xl);
+}
+
+.btn-secondary:hover {
+    background: var(--sikkim-primary);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-xl);
+}
+
+/* ===== ENHANCED CARDS ===== */
+.community-card, .feature-card-refined {
+    background: white;
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: var(--shadow);
+    transition: var(--transition-slow);
+    border: 1px solid #f1f5f9;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.community-card:hover, .feature-card-refined:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: var(--shadow-xl);
+}
+
+/* Enhanced Card Icons */
+.card-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    box-shadow: var(--shadow-lg);
+}
+
+.feature-icon-refined {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    box-shadow: var(--shadow-lg);
+}
+
+/* Main Description Card Enhancement */
+.main-description-card {
+    background: white;
+    border-radius: 20px;
+    padding: 3rem;
+    box-shadow: var(--shadow-lg);
+    border: 2px solid var(--sikkim-gold);
+    position: relative;
+    overflow: hidden;
+}
+
+/* ===== ENHANCED PRAYER FLAGS ===== */
+.prayer-flags-refined {
+    height: 80px;
+    background: linear-gradient(to right, var(--sikkim-light), white, var(--sikkim-light));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.flag-container {
+    display: flex;
+    gap: 12px;
+    z-index: 2;
+}
+
+.flag {
+    width: 48px;
+    height: 32px;
+    clip-path: polygon(0 0, 85% 0, 100% 50%, 85% 100%, 0 100%);
+    animation: gentleWave 4s ease-in-out infinite;
+    box-shadow: var(--shadow-sm);
+    position: relative;
+}
+
+.flag-blue-refined { background: var(--flag-blue); animation-delay: 0s; }
+.flag-white-refined { background: white; border: 1px solid #e5e7eb; animation-delay: 0.2s; }
+.flag-red-refined { background: var(--flag-red); animation-delay: 0.4s; }
+.flag-green-refined { background: var(--flag-green); animation-delay: 0.6s; }
+.flag-yellow-refined { background: var(--flag-yellow); animation-delay: 0.8s; }
+
+@keyframes gentleWave {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    25% { transform: translateY(-6px) rotate(1deg); }
+    50% { transform: translateY(0px) rotate(0deg); }
+    75% { transform: translateY(-3px) rotate(-0.5deg); }
+}
+
+/* Enhanced Mini Elements */
+.prayer-flags-mini {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 1rem;
+}
+
+.mini-flag {
+    width: 20px;
+    height: 12px;
+    clip-path: polygon(0 0, 80% 0, 100% 50%, 80% 100%, 0 100%);
+    box-shadow: var(--shadow-sm);
+}
+
+.cultural-symbols-refined {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 1rem;
+}
+
+.symbol-refined {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    box-shadow: var(--shadow-md);
+    transition: transform 0.3s ease;
+}
+
+.symbol-refined:hover {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.mountain-peaks-refined {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    gap: 6px;
+    height: 40px;
+    margin-top: 1rem;
+}
+
+.peak-refined {
+    width: 10px;
+    border-radius: 5px 5px 0 0;
+    box-shadow: var(--shadow-sm);
+}
+
+.peak-refined:nth-child(1) { height: 24px; }
+.peak-refined:nth-child(2) { height: 32px; }
+.peak-refined:nth-child(3) { height: 28px; }
+.peak-refined:nth-child(4) { height: 36px; }
+
+/* ===== MANDALA ENHANCEMENT ===== */
+.sikkim-mandala-refined {
+    width: 80px;
+    height: 80px;
+    background: conic-gradient(
+        var(--sikkim-primary) 0deg,
+        var(--sikkim-gold) 72deg,
+        var(--sikkim-blue) 144deg,
+        var(--sikkim-green) 216deg,
+        var(--sikkim-orange) 288deg,
+        var(--sikkim-primary) 360deg
+    );
+    border-radius: 50%;
+    animation: mandalaRotate 20s linear infinite;
+    box-shadow: var(--shadow-gold);
+    position: relative;
+}
+
+.sikkim-mandala-refined::before {
+    content: '';
+    position: absolute;
+    inset: 10px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: inset var(--shadow-sm);
+}
+
+.sikkim-mandala-refined::after {
+    content: '';
+    position: absolute;
+    inset: 20px;
+    background: conic-gradient(
+        var(--sikkim-primary) 0deg,
+        var(--sikkim-gold) 120deg,
+        var(--sikkim-blue) 240deg,
+        var(--sikkim-primary) 360deg
+    );
+    border-radius: 50%;
+}
+
+@keyframes mandalaRotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* ===== GENTLE CLOUDS ===== */
+.cloud-gentle {
+    position: absolute;
+    opacity: 0.08;
+    pointer-events: none;
+    width: 140px;
+    height: 70px;
+    background: var(--sikkim-accent);
+    border-radius: 35px;
+    filter: blur(3px);
+}
+
+.cloud-gentle::before,
+.cloud-gentle::after {
+    content: '';
+    position: absolute;
+    background: inherit;
+    border-radius: 50px;
+}
+
+.cloud-gentle::before {
+    top: -30px;
+    left: 15px;
+    width: 60px;
+    height: 60px;
+}
+
+.cloud-gentle::after {
+    top: -25px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+}
+
+.cloud-1 {
+    top: 25%;
+    left: -170px;
+    animation: gentleDrift 90s infinite linear;
+}
+
+.cloud-2 {
+    top: 65%;
+    right: -170px;
+    animation: gentleDriftReverse 110s infinite linear;
+}
+
+@keyframes gentleDrift {
+    from { transform: translateX(0); }
+    to { transform: translateX(calc(100vw + 340px)); }
+}
+
+@keyframes gentleDriftReverse {
+    from { transform: translateX(0); }
+    to { transform: translateX(calc(-100vw - 340px)); }
+}
+
+/* ===== SUBTLE PATTERNS ===== */
+.cultural-pattern-subtle {
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 25% 25%, var(--sikkim-gold) 1px, transparent 1px),
+        radial-gradient(circle at 75% 75%, var(--sikkim-blue) 1px, transparent 1px);
+    background-size: 120px 120px, 150px 150px;
+    animation: patternDrift 40s linear infinite;
+}
+
+@keyframes patternDrift {
+    from { background-position: 0 0, 0 0; }
+    to { background-position: 120px 120px, -150px 150px; }
+}
+
+/* ===== ENHANCED FOOTER ===== */
+.footer-link-refined {
+    color: #d1d5db;
+    text-decoration: none;
+    transition: var(--transition-fast);
+    font-weight: 500;
+    position: relative;
+}
+
+.footer-link-refined::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--sikkim-gold);
+    transition: width 0.3s ease;
+}
+
+.footer-link-refined:hover {
+    color: var(--sikkim-gold);
+    transform: translateX(6px);
+}
+
+.footer-link-refined:hover::before {
+    width: 100%;
+}
+
+/* ===== ANIMATION CLASSES ===== */
+.animate-in-refined {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+    .sikkim-mandala-refined {
+        width: 60px;
+        height: 60px;
+    }
+
+    .community-card, .feature-card-refined {
+        padding: 1.5rem;
+    }
+
+    .flag {
+        width: 36px;
+        height: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .flag-container {
+        gap: 6px;
+    }
+
+    .flag {
+        width: 28px;
+        height: 18px;
+    }
+}
+
+/* ===== ACCESSIBILITY ===== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .cloud-gentle {
+        animation: none;
+    }
+}
+
+/* ===== PRINT STYLES ===== */
+@media print {
+    .cloud-gentle {
+        display: none !important;
+    }
+
+    .text-gradient-refined {
+        color: var(--sikkim-primary) !important;
+        -webkit-text-fill-color: unset !important;
+    }
+
+    .community-card,
+    .feature-card-refined {
+        box-shadow: none !important;
+        border: 2px solid #e5e7eb !important;
+    }
+}

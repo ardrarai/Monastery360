@@ -1,0 +1,1580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monastery360: Digitizing the Spirit of Sikkim</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Authentic Sikkim Mountain Region Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Primary: Cinzel Decorative for monastery titles -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap" rel="stylesheet">
+    <!-- Secondary: Cormorant Garamond for heritage elegance -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+    <!-- Body: Crimson Text for readability with character -->
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    <!-- Accent: Trajan Pro alternative - Optima/Copperplate -->
+    <link href="https://fonts.googleapis.com/css2?family=Copperplate&display=swap" rel="stylesheet">
+    <!-- Sanskrit/Tibetan: Noto Serif Devanagari -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Mountain Rustic: Ruslan Display for decorative elements -->
+    <link href="https://fonts.googleapis.com/css2?family=Ruslan+Display&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // Refined Sikkim Tourist Palette
+                        'sikkim-primary': '#8B2635',    // Deep maroon
+                        'sikkim-gold': '#D4AF37',       // Elegant gold
+                        'sikkim-blue': '#2563EB',       // Royal blue
+                        'sikkim-green': '#059669',      // Forest green
+                        'sikkim-orange': '#EA580C',     // Warm orange
+                        'sikkim-cream': '#FEF3E2',      // Warm cream
+                        'sikkim-light': '#F8FAFC',     // Light background
+                        'sikkim-dark': '#1E293B',       // Dark text
+                        'sikkim-accent': '#0891B2'      // Turquoise accent
+                    },
+                    fontFamily: {
+                        'monastery': ['Cinzel Decorative', 'serif'],
+                        'heritage': ['Cormorant Garamond', 'serif'],
+                        'body': ['Crimson Text', 'serif'],
+                        'accent': ['Copperplate', 'sans-serif'],
+                        'sanskrit': ['Noto Serif Devanagari', 'serif'],
+                        'mountain': ['Ruslan Display', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* ENHANCED SIKKIM MOUNTAIN AESTHETIC WITH AUTHENTIC FONTS */
+        :root {
+            --sikkim-primary: #8B2635;
+            --sikkim-gold: #D4AF37;
+            --sikkim-blue: #2563EB;
+            --sikkim-green: #059669;
+            --sikkim-orange: #EA580C;
+            --sikkim-accent: #0891B2;
+            --sikkim-cream: #FEF3E2;
+            --sikkim-light: #F8FAFC;
+            --sikkim-dark: #1E293B;
+            --sikkim-white: #FFFFFF;
+
+            /* Sikkim Flag Colors */
+            --flag-white: #FFFFFF;
+            --flag-blue: #0066CC;
+            --flag-red: #DC2626;
+            --flag-green: #16A34A;
+            --flag-yellow: #EAB308;
+
+            /* Enhanced Gradients */
+            --gradient-primary: linear-gradient(135deg, var(--sikkim-primary) 0%, #A73545 100%);
+            --gradient-gold: linear-gradient(135deg, var(--sikkim-gold) 0%, #B8941F 100%);
+            --gradient-blue: linear-gradient(135deg, var(--sikkim-blue) 0%, #1D4ED8 100%);
+            --gradient-text: linear-gradient(135deg, var(--sikkim-primary) 0%, var(--sikkim-blue) 50%, var(--sikkim-green) 100%);
+
+            /* Enhanced Shadows for Better Visibility */
+            --shadow-sm: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+            --shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.15), 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 6px 12px -2px rgba(0, 0, 0, 0.15), 0 4px 8px -2px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 15px 25px -5px rgba(0, 0, 0, 0.15), 0 8px 12px -4px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 15px 25px -8px rgba(0, 0, 0, 0.15);
+            --shadow-gold: 0 15px 40px rgba(212, 175, 55, 0.4);
+            --shadow-glow: 0 0 50px rgba(212, 175, 55, 0.5);
+
+            /* Smoother Transitions */
+            --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --transition-fast: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --transition-slow: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        /* Scroll behavior for smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* AUTHENTIC MOUNTAIN REGION TYPOGRAPHY */
+        body {
+            font-family: 'Crimson Text', serif;
+            font-weight: 400;
+            line-height: 1.6;
+            letter-spacing: 0.01em;
+        }
+
+        .font-monastery {
+            font-family: 'Cinzel Decorative', serif;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .font-heritage {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+        }
+
+        .font-body {
+            font-family: 'Crimson Text', serif;
+            font-weight: 400;
+            letter-spacing: 0.01em;
+            line-height: 1.7;
+        }
+
+        .font-accent {
+            font-family: 'Copperplate', sans-serif;
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .font-sanskrit {
+            font-family: 'Noto Serif Devanagari', serif;
+            font-weight: 500;
+        }
+
+        .font-mountain {
+            font-family: 'Ruslan Display', serif;
+            font-weight: 400;
+            letter-spacing: 0.03em;
+        }
+
+        /* SIKKIM MOUNTAIN/FLAG IMAGE BACKGROUND */
+        .image-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=1920&h=1080&fit=crop&q=80');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            filter: brightness(0.7) contrast(1.2) saturate(1);
+            z-index: 1;
+        }
+
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, 
+                rgba(254, 243, 226, 0.88) 0%, 
+                rgba(255, 255, 255, 0.78) 30%, 
+                rgba(248, 250, 252, 0.82) 70%, 
+                rgba(254, 243, 226, 0.88) 100%);
+            z-index: 2;
+        }
+        
+        /* ENHANCED TITLE WITH MONASTERY FONT */
+        .hero-title-glow {
+            animation: titleGlow 5s ease-in-out infinite alternate;
+            position: relative;
+            z-index: 10;
+            text-shadow: 
+                0 4px 20px rgba(139, 38, 53, 0.5), 
+                0 0 40px rgba(212, 175, 55, 0.6),
+                2px 2px 8px rgba(0, 0, 0, 0.25),
+                0 0 60px rgba(212, 175, 55, 0.4);
+            font-family: 'Cinzel Decorative', serif;
+            font-weight: 900;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        @keyframes titleGlow {
+            from { 
+                filter: drop-shadow(0 0 25px rgba(212, 175, 55, 0.6)) 
+                        drop-shadow(0 0 50px rgba(139, 38, 53, 0.4)); 
+                transform: scale(1);
+            }
+            to { 
+                filter: drop-shadow(0 0 45px rgba(212, 175, 55, 0.8)) 
+                        drop-shadow(0 0 70px rgba(139, 38, 53, 0.5)); 
+                transform: scale(1.01);
+            }
+        }
+
+        /* ENHANCED TEXT GRADIENT WITH BETTER CONTRAST */
+        .text-gradient-refined {
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: contrast(1.2) brightness(1.1);
+        }
+
+        /* HERITAGE FADE IN ANIMATIONS */
+        .subtitle-fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: smoothFadeInUp 1.1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.6s forwards;
+            position: relative;
+            z-index: 10;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            font-style: italic;
+            letter-spacing: 0.03em;
+        }
+
+        .content-fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: smoothFadeInUp 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.2s forwards;
+            position: relative;
+            z-index: 10;
+            text-shadow: 0 1px 6px rgba(0, 0, 0, 0.12);
+            font-family: 'Crimson Text', serif;
+            font-weight: 400;
+            line-height: 1.8;
+            letter-spacing: 0.01em;
+        }
+
+        .cta-slide-up {
+            opacity: 0;
+            transform: translateY(40px);
+            animation: smoothSlideUp 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.8s forwards;
+            position: relative;
+            z-index: 10;
+        }
+
+        @keyframes smoothFadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes smoothSlideUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ENHANCED NAVIGATION WITH HERITAGE FONTS */
+        .nav-link {
+            color: var(--sikkim-dark);
+            font-weight: 500;
+            padding: 10px 18px;
+            border-radius: 10px;
+            transition: var(--transition);
+            position: relative;
+            text-decoration: none;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 17px;
+            letter-spacing: 0.02em;
+        }
+
+        .nav-link:hover {
+            color: var(--sikkim-primary);
+            background-color: var(--sikkim-cream);
+            box-shadow: var(--shadow-sm);
+            transform: translateY(-1px);
+        }
+
+        .nav-link.active {
+            color: var(--sikkim-primary);
+            background-color: var(--sikkim-cream);
+            font-weight: 600;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 2px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--sikkim-gold);
+            transition: var(--transition);
+            transform: translateX(-50%);
+            border-radius: 1px;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 70%;
+        }
+
+        /* ENHANCED BUTTONS WITH HERITAGE STYLING */
+        .btn-primary, .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 36px;
+            border-radius: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            box-shadow: var(--shadow-md);
+            position: relative;
+            overflow: hidden;
+            z-index: 10;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            font-size: 16px;
+            letter-spacing: 0.05em;
+            font-family: 'Crimson Text', serif;
+            text-transform: none;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+            border: 2px solid transparent;
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.95);
+            color: var(--sikkim-primary);
+            border: 2px solid var(--sikkim-primary);
+            backdrop-filter: blur(10px);
+        }
+
+        .enhanced-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.8s ease;
+        }
+
+        .enhanced-btn:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: var(--shadow-xl);
+            filter: brightness(1.1);
+        }
+
+        .btn-secondary:hover {
+            background: var(--sikkim-primary);
+            color: white;
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .btn-hover-active {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: var(--shadow-xl);
+        }
+
+        /* ENHANCED CARDS WITH HERITAGE FONTS */
+        .community-card, .feature-card-refined {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 3rem;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition-slow);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        .community-card h3, .feature-card-refined h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            letter-spacing: 0.025em;
+            margin-bottom: 1.5rem;
+        }
+
+        .community-card p, .feature-card-refined p {
+            font-family: 'Crimson Text', serif;
+            font-weight: 400;
+            line-height: 1.7;
+            letter-spacing: 0.01em;
+        }
+
+        .enhanced-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
+            transform: scale(0);
+            transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .enhanced-card:hover::before {
+            transform: scale(1);
+        }
+
+        .enhanced-card:hover, .enhanced-feature-card:hover {
+            transform: translateY(-16px) scale(1.03);
+            box-shadow: var(--shadow-xl), 0 0 40px rgba(212, 175, 55, 0.2);
+        }
+
+        /* CULTURALLY APPROPRIATE CARD ICONS */
+        .card-icon-enhanced {
+            width: 75px;
+            height: 75px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+        }
+
+        .icon-glow {
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .card-icon-enhanced:hover {
+            transform: scale(1.1);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .card-icon-enhanced:hover .icon-glow {
+            opacity: 1;
+        }
+
+        /* CULTURALLY APPROPRIATE FEATURE ICONS */
+        .feature-icon-enhanced {
+            width: 85px;
+            height: 85px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            position: relative;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+        }
+
+        .feature-icon-glow {
+            position: absolute;
+            inset: -6px;
+            border-radius: 50%;
+            background: conic-gradient(from 0deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+            animation: smoothRotate 4s linear infinite;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .feature-icon-enhanced:hover {
+            transform: scale(1.1);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .feature-icon-enhanced:hover .feature-icon-glow {
+            opacity: 1;
+        }
+
+        @keyframes smoothRotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Enhanced Card Footer Accents */
+        .card-footer-accent {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            border-radius: 0 0 24px 24px;
+        }
+
+        .lepcha-accent { background: var(--gradient-blue); }
+        .bhutia-accent { background: var(--gradient-primary); }
+        .nepali-accent { background: linear-gradient(135deg, var(--sikkim-orange) 0%, #F97316 100%); }
+
+        /* Enhanced Card Corner Accents */
+        .card-corner-accent {
+            position: absolute;
+            width: 45px;
+            height: 45px;
+            opacity: 0.08;
+            transition: opacity 0.4s ease;
+            border-radius: 8px;
+        }
+
+        .corner-1 {
+            top: 20px;
+            right: 20px;
+            background: var(--sikkim-primary);
+        }
+
+        .corner-2 {
+            bottom: 20px;
+            left: 20px;
+            background: var(--sikkim-blue);
+        }
+
+        .corner-3 {
+            top: 20px;
+            left: 20px;
+            background: var(--sikkim-green);
+        }
+
+        .enhanced-feature-card:hover .card-corner-accent {
+            opacity: 0.15;
+        }
+
+        /* Enhanced Main Description Card */
+        .enhanced-main-card {
+            position: relative;
+            border: 3px solid var(--sikkim-gold);
+            box-shadow: var(--shadow-gold);
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+        }
+
+        .enhanced-main-card p {
+            font-family: 'Crimson Text', serif;
+            font-weight: 500;
+            line-height: 1.8;
+            letter-spacing: 0.015em;
+        }
+
+        .card-shimmer {
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+            animation: smoothShimmer 4s ease-in-out infinite;
+        }
+
+        @keyframes smoothShimmer {
+            0% { left: -100%; }
+            50% { left: 100%; }
+            100% { left: 100%; }
+        }
+
+        /* ENHANCED PRAYER FLAGS WITH BETTER VISIBILITY */
+        .prayer-flags-refined {
+            height: 90px;
+            background: linear-gradient(to right, 
+                var(--sikkim-light), 
+                rgba(255, 255, 255, 0.95), 
+                var(--sikkim-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .enhanced-divider::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            background: radial-gradient(ellipse at center, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
+            animation: smoothDividerPulse 6s ease-in-out infinite;
+        }
+
+        @keyframes smoothDividerPulse {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 0.8; }
+        }
+
+        .flag-container {
+            display: flex;
+            gap: 16px;
+            z-index: 2;
+        }
+
+        .flag {
+            width: 52px;
+            height: 36px;
+            clip-path: polygon(0 0, 85% 0, 100% 50%, 85% 100%, 0 100%);
+            animation: smoothGentleWave 5s ease-in-out infinite;
+            box-shadow: var(--shadow-md);
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .flag::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(45deg, rgba(255, 255, 255, 0.4) 0%, transparent 60%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .flag:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .flag:hover::before {
+            opacity: 1;
+        }
+
+        .flag-blue-refined { background: var(--flag-blue); animation-delay: 0s; }
+        .flag-white-refined { background: white; border: 2px solid #e5e7eb; animation-delay: 0.3s; }
+        .flag-red-refined { background: var(--flag-red); animation-delay: 0.6s; }
+        .flag-green-refined { background: var(--flag-green); animation-delay: 0.9s; }
+        .flag-yellow-refined { background: var(--flag-yellow); animation-delay: 1.2s; }
+
+        @keyframes smoothGentleWave {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-8px) rotate(1.5deg); }
+            50% { transform: translateY(0px) rotate(0deg); }
+            75% { transform: translateY(-4px) rotate(-0.8deg); }
+        }
+
+        /* Section Headers with Heritage Styling */
+        .section-header {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            letter-spacing: 0.03em;
+            font-size: 2.5rem;
+        }
+
+        /* Enhanced Mini Elements */
+        .prayer-flags-mini {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 1.5rem;
+        }
+
+        .mini-flag {
+            width: 22px;
+            height: 14px;
+            clip-path: polygon(0 0, 80% 0, 100% 50%, 80% 100%, 0 100%);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .enhanced-flags .mini-flag:hover {
+            transform: scale(1.3) translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .cultural-symbols-enhanced {
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+            margin-top: 1.5rem;
+        }
+
+        .symbol-refined {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            font-family: 'Noto Serif Devanagari', serif;
+        }
+
+        .symbol-refined:hover {
+            transform: scale(1.15) rotate(8deg) translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .mountain-peaks-enhanced {
+            display: flex;
+            justify-content: center;
+            align-items: end;
+            gap: 8px;
+            height: 45px;
+            margin-top: 1.5rem;
+        }
+
+        .peak-refined {
+            width: 12px;
+            border-radius: 6px 6px 0 0;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .peak-refined:nth-child(1) { height: 26px; }
+        .peak-refined:nth-child(2) { height: 35px; }
+        .peak-refined:nth-child(3) { height: 30px; }
+        .peak-refined:nth-child(4) { height: 40px; }
+
+        .mountain-peaks-enhanced:hover .peak-refined {
+            transform: translateY(-3px);
+        }
+
+        .mountain-peaks-enhanced:hover .peak-refined:nth-child(1) { height: 30px; }
+        .mountain-peaks-enhanced:hover .peak-refined:nth-child(2) { height: 42px; }
+        .mountain-peaks-enhanced:hover .peak-refined:nth-child(3) { height: 36px; }
+        .mountain-peaks-enhanced:hover .peak-refined:nth-child(4) { height: 48px; }
+
+        /* ENHANCED MAP PREVIEW */
+        .enhanced-map-preview {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 3.5rem;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+            max-width: 520px;
+            margin: 0 auto;
+            border: 2px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .enhanced-map-preview h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            letter-spacing: 0.025em;
+        }
+
+        .enhanced-map-preview p {
+            font-family: 'Crimson Text', serif;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        .map-preview-glow {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at center, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
+            animation: smoothMapGlow 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes smoothMapGlow {
+            from { opacity: 0.4; }
+            to { opacity: 0.8; }
+        }
+
+        .map-icon-container {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+        }
+
+        .map-icon-pulse {
+            position: absolute;
+            inset: -12px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(139, 38, 53, 0.4) 0%, transparent 70%);
+            animation: smoothIconPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes smoothIconPulse {
+            0%, 100% { 
+                transform: scale(1);
+                opacity: 0.6;
+            }
+            50% { 
+                transform: scale(1.3);
+                opacity: 0.9;
+            }
+        }
+
+        /* ENHANCED PATTERNS */
+        .cultural-pattern-subtle {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 25% 25%, var(--sikkim-gold) 1.5px, transparent 1.5px),
+                radial-gradient(circle at 75% 75%, var(--sikkim-blue) 1.5px, transparent 1.5px);
+            background-size: 140px 140px, 170px 170px;
+            animation: smoothPatternDrift 50s linear infinite;
+            opacity: 0.06;
+            z-index: 4;
+        }
+
+        @keyframes smoothPatternDrift {
+            from { background-position: 0 0, 0 0; }
+            to { background-position: 140px 140px, -170px 170px; }
+        }
+
+        .footer-pattern {
+            background-image: 
+                linear-gradient(45deg, transparent 25%, rgba(212, 175, 55, 0.12) 25%),
+                linear-gradient(-45deg, transparent 25%, rgba(212, 175, 55, 0.12) 25%);
+            background-size: 70px 70px;
+            animation: smoothFooterPattern 25s linear infinite;
+        }
+
+        @keyframes smoothFooterPattern {
+            from { background-position: 0 0; }
+            to { background-position: 70px 70px; }
+        }
+
+        /* ENHANCED FOOTER */
+        .cultural-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            animation: smoothDotPulse 4s ease-in-out infinite;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .dot-gold { background: var(--sikkim-gold); animation-delay: 0s; }
+        .dot-accent { background: var(--sikkim-accent); animation-delay: 0.8s; }
+        .dot-orange { background: var(--sikkim-orange); animation-delay: 1.6s; }
+        .dot-green { background: var(--sikkim-green); animation-delay: 2.4s; }
+
+        @keyframes smoothDotPulse {
+            0%, 100% { 
+                transform: scale(1);
+                opacity: 0.9;
+            }
+            50% { 
+                transform: scale(1.3);
+                opacity: 1;
+            }
+        }
+
+        .footer-link-refined {
+            color: #e5e7eb;
+            text-decoration: none;
+            transition: var(--transition-fast);
+            font-weight: 500;
+            position: relative;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+            font-family: 'Crimson Text', serif;
+            letter-spacing: 0.015em;
+        }
+
+        .footer-link-refined::before {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--sikkim-gold);
+            transition: width 0.4s ease;
+            border-radius: 1px;
+        }
+
+        .footer-link-refined:hover {
+            color: var(--sikkim-gold);
+            transform: translateX(8px);
+        }
+
+        .footer-link-refined:hover::before {
+            width: 100%;
+        }
+
+        .contact-item {
+            transition: var(--transition);
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+            font-family: 'Crimson Text', serif;
+        }
+
+        .contact-item:hover {
+            transform: translateX(6px);
+            color: #f3f4f6;
+        }
+
+        /* Enhanced Footer Headers */
+        .footer-header {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+        }
+
+        /* Enhanced Brand Name in Footer */
+        .footer-brand {
+            font-family: 'Cinzel Decorative', serif;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+        }
+
+        /* FUNCTIONAL SCROLL INDICATOR */
+        .scroll-indicator {
+            animation: smoothGentleFloat 4s ease-in-out infinite;
+            margin-top: 3rem;
+            position: relative;
+            z-index: 10;
+            cursor: pointer;
+        }
+
+        .scroll-arrow {
+            width: 30px;
+            height: 30px;
+            border-right: 3px solid var(--sikkim-primary);
+            border-bottom: 3px solid var(--sikkim-primary);
+            transform: rotate(45deg);
+            margin: 0 auto;
+            animation: smoothArrowPulse 3s ease-in-out infinite;
+            box-shadow: 0 2px 8px rgba(139, 38, 53, 0.2);
+            transition: var(--transition);
+        }
+
+        .scroll-indicator:hover .scroll-arrow {
+            transform: rotate(45deg) scale(1.2);
+            border-color: var(--sikkim-gold);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .scroll-indicator:active .scroll-arrow {
+            transform: rotate(45deg) scale(0.9);
+        }
+
+        @keyframes smoothGentleFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+
+        @keyframes smoothArrowPulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+
+        /* ENHANCED ANIMATION CLASSES */
+        .animate-in-refined {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+
+        .stagger-animate {
+            animation: smoothCardStagger 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+        }
+
+        @keyframes smoothCardStagger {
+            from {
+                opacity: 0;
+                transform: translateY(40px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .feature-reveal {
+            animation: smoothFeatureReveal 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+        }
+
+        @keyframes smoothFeatureReveal {
+            from {
+                opacity: 0;
+                transform: translateY(50px) rotateX(15deg);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) rotateX(0deg);
+            }
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 768px) {
+            .sikkim-mandala-refined {
+                width: 65px;
+                height: 65px;
+            }
+
+            .community-card, .feature-card-refined {
+                padding: 2rem;
+            }
+
+            .flag {
+                width: 40px;
+                height: 28px;
+            }
+
+            .hero-title-glow {
+                font-size: 3.5rem;
+            }
+
+            .enhanced-map-preview {
+                padding: 2.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .flag-container {
+                gap: 10px;
+            }
+
+            .flag {
+                width: 32px;
+                height: 22px;
+            }
+
+            .hero-title-glow {
+                font-size: 2.8rem;
+            }
+
+            .sikkim-flags-background {
+                background-size: 250px 250px, 200px 200px, 300px 300px, 220px 220px;
+            }
+        }
+
+        /* ACCESSIBILITY */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* PRINT STYLES */
+        @media print {
+            .image-background,
+            .sikkim-flags-background,
+            .scroll-indicator {
+                display: none !important;
+            }
+
+            .text-gradient-refined {
+                color: var(--sikkim-primary) !important;
+                -webkit-text-fill-color: unset !important;
+            }
+
+            .community-card,
+            .feature-card-refined {
+                box-shadow: none !important;
+                border: 2px solid #e5e7eb !important;
+            }
+        }
+    
+        /* Additional CSS for clickable cards */
+        .clickable-card {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .clickable-card:hover {
+            transform: translateY(-20px) scale(1.05);
+            box-shadow: var(--shadow-xl), 0 0 40px rgba(212, 175, 55, 0.3);
+        }
+
+        .clickable-card:active {
+            transform: translateY(-12px) scale(1.01);
+        }
+
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+</style>
+</head>
+<body class="bg-sikkim-light text-sikkim-dark font-body">
+
+    <!-- Refined Navbar -->
+    <nav class="sticky top-0 z-50 bg-white shadow-lg border-b border-sikkim-gold/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-sikkim-primary rounded-full flex items-center justify-center">
+                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10 2L3 7v11a2 2 0 002 2h10a2 2 0 002-2V7l-7-5z"/>
+                        </svg>
+                    </div>
+                    <h1 class="text-xl font-bold text-sikkim-primary font-monastery">Monastery360</h1>
+                </div>
+
+                <!-- Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link active">Home</a>
+                    <a href="monastery.html" class="nav-link">Monasteries</a>
+                    <a href="mapSikkim.html" class="nav-link">Map</a>
+                    <a href="calendar.html" class="nav-link">Calendar</a>
+                    <a href="archives.html" class="nav-link">Archives</a>
+                </div>
+
+                <!-- Mobile Menu -->
+                <div class="md:hidden">
+                    <button class="text-sikkim-primary hover:text-sikkim-gold">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Image Background -->
+    <section id="hero" class="relative min-h-screen flex items-center bg-gradient-to-br from-sikkim-cream via-white to-sikkim-light overflow-hidden">
+
+        <!-- SIKKIM MOUNTAIN/FLAG IMAGE BACKGROUND -->
+        <div class="image-background"></div>
+
+        <!-- Enhanced Image Overlay -->
+        <div class="image-overlay"></div>
+
+        <!-- Enhanced Sikkim Flag Pattern Background -->
+        <div class="sikkim-flags-background"></div>
+
+        <!-- Enhanced Background Pattern -->
+        <div class="cultural-pattern-subtle"></div>
+
+        <div class="max-w-7xl mx-auto px-6 text-center z-10 relative">
+            <div class="mb-8">
+                <div class="sikkim-mandala-refined mx-auto"></div>
+            </div>
+
+            <!-- Enhanced Title with Monastery Font -->
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 text-gradient-refined hero-title-glow">
+                Monastery360
+            </h1>
+
+            <h2 class="text-2xl md:text-3xl text-sikkim-primary mb-8 subtitle-fade-in">
+                Digitizing the Spirit of Sikkim
+            </h2>
+
+            <p class="text-lg md:text-xl text-gray-700 mb-12 max-w-4xl mx-auto leading-relaxed content-fade-in">
+                Discover the sacred heritage of Sikkim's monasteries through immersive digital experiences. 
+                Explore ancient wisdom, vibrant festivals, and architectural marvels of the 
+                <strong class="text-sikkim-blue font-heritage">Lepcha</strong>, <strong class="text-sikkim-primary font-heritage">Bhutia</strong>, 
+                and <strong class="text-sikkim-orange font-heritage">Nepali</strong> communities.
+            </p>
+
+            <!-- Enhanced CTA Buttons -->
+            <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12 cta-slide-up">
+                <a href="monastery.html" class="btn-primary enhanced-btn">
+                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10 2L3 7v11a2 2 0 002 2h10a2 2 0 002-2V7l-7-5z"/>
+                    </svg>
+                    Explore Monasteries
+                </a>
+                <a href="mapSikkim.html" class="btn-secondary enhanced-btn">
+                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
+                    </svg>
+                    View Interactive Map
+                </a>
+            </div>
+
+            <!-- Functional Scroll Indicator -->
+            <div class="scroll-indicator" onclick="scrollToNext()">
+                <div class="scroll-arrow"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Prayer Flags Divider -->
+    <div class="prayer-flags-refined enhanced-divider">
+        <div class="flag-container">
+            <div class="flag flag-blue-refined"></div>
+            <div class="flag flag-white-refined"></div>
+            <div class="flag flag-red-refined"></div>
+            <div class="flag flag-green-refined"></div>
+            <div class="flag flag-yellow-refined"></div>
+        </div>
+    </div>
+
+    <!-- Enhanced About Section -->
+<section id="about" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-gradient-refined mb-8 section-header">Our Sacred Mission</h2>
+
+            <!-- Enhanced Cultural Community Cards with Properly Positioned Combined Icons -->
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
+                <div class="community-card lepcha-card enhanced-card">
+                    <div class="card-icon-enhanced bg-sikkim-blue">
+                        <!-- Lepcha: Forest People - Tree + Person -->
+                        <div class="relative flex items-center justify-center w-16 h-16">
+                            <div class="text-4xl absolute z-10">🌳</div>
+                            <div class="text-3xl absolute z-20 translate-x-3 translate-y-2 opacity-90">👤</div>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-sikkim-blue mb-4">Lepcha Heritage</h3>
+                    <p class="text-gray-600 leading-relaxed">Indigenous children of the forest, preserving ancient wisdom through traditional crafts and harmony with nature.</p>
+                    <div class="card-footer-accent lepcha-accent"></div>
+                </div>
+
+                <div class="community-card bhutia-card enhanced-card">
+                    <div class="card-icon-enhanced bg-sikkim-primary">
+                        <!-- Bhutia: Buddhist Monastery with Prayer -->
+                        <div class="relative flex items-center justify-center w-16 h-16">
+                            <div class="text-4xl absolute z-10">🏯</div>
+                            <div class="text-3xl absolute z-20 translate-x-4 -translate-y-1 opacity-90">🙏</div>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-sikkim-primary mb-4">Bhutia Traditions</h3>
+                    <p class="text-gray-600 leading-relaxed">Buddhist monastery builders and spiritual guardians, maintaining centuries of architectural mastery and religious practices.</p>
+                    <div class="card-footer-accent bhutia-accent"></div>
+                </div>
+
+                <div class="community-card nepali-card enhanced-card">
+                    <div class="card-icon-enhanced bg-sikkim-orange">
+                        <!-- Nepali: Festival Dancing -->
+                        <div class="relative flex items-center justify-center w-16 h-16">
+                            <div class="text-4xl absolute z-10">🎭</div>
+                            <div class="text-3xl absolute z-20 translate-x-3 translate-y-1 opacity-90">💃🏾</div>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-sikkim-orange mb-4">Nepali Culture</h3>
+                    <p class="text-gray-600 leading-relaxed">Vibrant festival traditions and cultural diversity, enriching Sikkim with colorful celebrations and artistry.</p>
+                    <div class="card-footer-accent nepali-accent"></div>
+                </div>
+            </div>
+
+            <!-- Enhanced Main Description -->
+            <div class="main-description-card enhanced-main-card">
+                <div class="card-shimmer"></div>
+                <p class="text-xl text-gray-800 leading-relaxed relative z-10">
+                    Monastery360 represents a groundbreaking initiative to digitally preserve the profound spiritual heritage 
+                    of Sikkim's sacred monasteries. From the ancient <strong class="text-sikkim-primary font-heritage">Dubdi Monastery</strong> 
+                    to the magnificent <strong class="text-sikkim-blue font-heritage">Rumtek complex</strong>, we capture the essence of 
+                    Buddhist wisdom, architectural beauty, and cultural diversity that defines this Himalayan kingdom.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Enhanced Features Section -->
+<section id="features" class="py-20 bg-sikkim-light">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-gradient-refined mb-8 section-header">Digital Spiritual Journey</h2>
+
+            <div class="grid md:grid-cols-3 gap-10">
+                <!-- Virtual Tours -->
+                <div class="feature-card-refined enhanced-feature-card clickable-card" onclick="navigateToPage('monastery.html')" style="cursor: pointer;">
+                    <div class="feature-icon-enhanced bg-sikkim-primary">
+                        <!-- VR Tour with 360 -->
+                        <div class="relative flex items-center justify-center w-20 h-20">
+                            <div class="text-5xl absolute z-10">🥽</div>
+                            <div class="text-lg font-bold text-white absolute z-20 translate-x-6 translate-y-3 bg-sikkim-gold px-2 py-1 rounded-full opacity-95">360°</div>
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-bold text-sikkim-primary mb-6">Virtual Monastery Tours</h3>
+                    <p class="text-gray-700 leading-relaxed mb-6">
+                        Experience immersive 360-degree journeys through sacred halls, golden stupas, 
+                        and vibrant prayer wheels of Sikkim's most revered monasteries.
+                    </p>
+                    <div class="prayer-flags-mini enhanced-flags">
+                        <span class="mini-flag bg-sikkim-blue"></span>
+                        <span class="mini-flag bg-white border"></span>
+                        <span class="mini-flag bg-sikkim-primary"></span>
+                        <span class="mini-flag bg-sikkim-green"></span>
+                        <span class="mini-flag bg-sikkim-gold"></span>
+                    </div>
+                    <div class="card-corner-accent corner-1"></div>
+                </div>
+
+                <!-- Digital Archives -->
+                <div class="feature-card-refined enhanced-feature-card clickable-card" onclick="navigateToPage('archives.html')" style="cursor: pointer;">
+                    <div class="feature-icon-enhanced bg-sikkim-blue">
+                        <!-- Digital Archives with Computer -->
+                        <div class="relative flex items-center justify-center w-20 h-20">
+                            <div class="text-5xl absolute z-10">📜</div>
+                            <div class="text-4xl absolute z-20 translate-x-5 translate-y-4 opacity-90">💻</div>
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-bold text-sikkim-blue mb-6">Sacred Archives</h3>
+                    <p class="text-gray-700 leading-relaxed mb-6">
+                        Comprehensive digital preservation of ancient manuscripts, thangkas, 
+                        and cultural artifacts from all three communities of Sikkim.
+                    </p>
+                    <div class="cultural-symbols-enhanced">
+                        <span class="symbol-refined bg-sikkim-blue">ᰛ</span>
+                        <span class="symbol-refined bg-sikkim-primary">ཨ</span>
+                        <span class="symbol-refined bg-sikkim-orange">ॐ</span>
+                    </div>
+                    <div class="card-corner-accent corner-2"></div>
+                </div>
+
+                <!-- Interactive Maps -->
+                <div class="feature-card-refined enhanced-feature-card clickable-card" onclick="navigateToPage('mapSikkim.html')" style="cursor: pointer;">
+                    <div class="feature-icon-enhanced bg-sikkim-green">
+                        <!-- Interactive Mountain Map -->
+                        <div class="relative flex items-center justify-center w-20 h-20">
+                            <div class="text-5xl absolute z-10">🗺️</div>
+                            <div class="text-3xl absolute z-20 translate-x-4 translate-y-4 opacity-90">📍</div>
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-bold text-sikkim-green mb-6">Sacred Geography</h3>
+                    <p class="text-gray-700 leading-relaxed mb-6">
+                        Navigate the spiritual landscape of Sikkim through detailed monastery 
+                        locations and ancient pilgrimage routes across the Himalayas.
+                    </p>
+                    <div class="mountain-peaks-enhanced">
+                        <span class="peak-refined bg-sikkim-green"></span>
+                        <span class="peak-refined bg-sikkim-blue"></span>
+                        <span class="peak-refined bg-sikkim-gold"></span>
+                        <span class="peak-refined bg-sikkim-primary"></span>
+                    </div>
+                    <div class="card-corner-accent corner-3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Enhanced Footer -->
+    <footer class="bg-sikkim-dark text-white py-16 relative">
+        <div class="absolute inset-0 opacity-5">
+            <div class="footer-pattern"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Brand -->
+                <div class="md:col-span-2">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-10 h-10 bg-sikkim-gold rounded-full flex items-center justify-center">
+                            <svg class="w-6 h-6 text-sikkim-dark" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M10 2L3 7v11a2 2 0 002 2h10a2 2 0 002-2V7l-7-5z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold footer-brand">Monastery360</h3>
+                    </div>
+                    <p class="text-gray-300 leading-relaxed mb-6">
+                        Digitally preserving the sacred heritage and cultural traditions of Sikkim's 
+                        Lepcha, Bhutia, and Nepali communities for future generations.
+                    </p>
+                    <!-- Enhanced Cultural Accent -->
+                    <div class="flex space-x-2">
+                        <div class="cultural-dot dot-gold"></div>
+                        <div class="cultural-dot dot-accent"></div>
+                        <div class="cultural-dot dot-orange"></div>
+                        <div class="cultural-dot dot-green"></div>
+                    </div>
+                </div>
+
+                <!-- Links -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6 text-sikkim-gold footer-header">Sacred Pathways</h4>
+                    <ul class="space-y-3">
+                        <li><a href="monastery.html" class="footer-link-refined">Monasteries</a></li>
+                        <li><a href="mapSikkim.html" class="footer-link-refined">Interactive Map</a></li>
+                        <li><a href="calendar.html" class="footer-link-refined">Festival Calendar</a></li>
+                        <li><a href="archives.html" class="footer-link-refined">Digital Archives</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6 text-sikkim-gold footer-header">Connect</h4>
+                    <div class="space-y-3 text-gray-300">
+                        <p class="contact-item">📧 wisdom@monastery360.org</p>
+                        <p class="contact-item">📞 +91 XXX XXX XXXX</p>
+                        <p class="contact-item">🏔️ Gangtok, Sikkim, India</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 mt-12 pt-8 text-center">
+                <p class="text-gray-400 font-body">
+                    © 2025 Monastery360. Preserving Himalayan heritage with respect and reverence.
+                    <span class="text-sikkim-gold ml-2 font-sanskrit text-lg">བཀྲ་ཤིས་བདེ་ལེགས།</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Enhanced animations and interactions with functional scroll arrow
+        document.addEventListener('DOMContentLoaded', function() {
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Enhanced intersection observer for animations
+            const observerOptions = {
+                threshold: 0.15,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-in-refined');
+
+                        // Special staggered animation for community cards
+                        if (entry.target.classList.contains('community-card')) {
+                            const cards = document.querySelectorAll('.community-card');
+                            cards.forEach((card, index) => {
+                                setTimeout(() => {
+                                    card.classList.add('stagger-animate');
+                                }, index * 300);
+                            });
+                        }
+
+                        // Special animation for feature cards
+                        if (entry.target.classList.contains('feature-card-refined')) {
+                            setTimeout(() => {
+                                entry.target.classList.add('feature-reveal');
+                            }, 400);
+                        }
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all animatable elements
+            document.querySelectorAll('.community-card, .feature-card-refined, .enhanced-card, .enhanced-feature-card').forEach(card => {
+                observer.observe(card);
+            });
+
+            // Enhanced button hover effects
+            document.querySelectorAll('.enhanced-btn').forEach(btn => {
+                btn.addEventListener('mouseenter', function() {
+                    this.classList.add('btn-hover-active');
+                });
+
+                btn.addEventListener('mouseleave', function() {
+                    this.classList.remove('btn-hover-active');
+                });
+            });
+
+            console.log('Enhanced Sikkim cultural design with functional scroll arrow loaded successfully');
+
+        // Smooth navigation function for card clicks
+        function navigateToPage(url) {
+            // Add a subtle loading effect
+            document.body.style.transition = 'opacity 0.3s ease';
+            document.body.style.opacity = '0.8';
+
+            // Navigate after a brief moment for smooth transition
+            setTimeout(() => {
+                window.location.href = url;
+            }, 200);
+        }
+
+        // Add hover effects for clickable cards
+        document.addEventListener('DOMContentLoaded', function() {
+            const clickableCards = document.querySelectorAll('.clickable-card');
+            clickableCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-20px) scale(1.05)';
+                    this.style.transition = 'all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                    this.style.boxShadow = 'var(--shadow-xl), 0 0 40px rgba(212, 175, 55, 0.3)';
+                });
+
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(-16px) scale(1.03)';
+                    this.style.boxShadow = 'var(--shadow-xl), 0 0 40px rgba(212, 175, 55, 0.2)';
+                });
+
+                card.addEventListener('mousedown', function() {
+                    this.style.transform = 'translateY(-12px) scale(1.01)';
+                });
+
+                card.addEventListener('mouseup', function() {
+                    this.style.transform = 'translateY(-20px) scale(1.05)';
+                });
+
+                // Add click ripple effect
+                card.addEventListener('click', function(e) {
+                    const ripple = document.createElement('div');
+                    ripple.style.position = 'absolute';
+                    ripple.style.borderRadius = '50%';
+                    ripple.style.background = 'rgba(212, 175, 55, 0.6)';
+                    ripple.style.transform = 'scale(0)';
+                    ripple.style.animation = 'ripple 0.6s linear';
+                    ripple.style.pointerEvents = 'none';
+
+                    const rect = this.getBoundingClientRect();
+                    const size = Math.max(rect.width, rect.height);
+                    const x = e.clientX - rect.left - size / 2;
+                    const y = e.clientY - rect.top - size / 2;
+
+                    ripple.style.width = ripple.style.height = size + 'px';
+                    ripple.style.left = x + 'px';
+                    ripple.style.top = y + 'px';
+
+                    this.appendChild(ripple);
+
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 600);
+                });
+            });
+        });
+        });
+
+        // Functional scroll arrow - scrolls to next section like page down
+        function scrollToNext() {
+            const currentPosition = window.pageYOffset;
+            const windowHeight = window.innerHeight;
+            const sections = document.querySelectorAll('section');
+
+            let targetSection = null;
+
+            // Find the next section that's not currently in view
+            for (let i = 0; i < sections.length; i++) {
+                const section = sections[i];
+                const sectionTop = section.offsetTop;
+
+                if (sectionTop > currentPosition + 100) {
+                    targetSection = section;
+                    break;
+                }
+            }
+
+            // If we found a target section, scroll to it
+            if (targetSection) {
+                targetSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            } else {
+                // If no next section found, scroll to bottom
+                window.scrollTo({
+                    top: document.body.scrollHeight,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        // Also allow scroll arrow to work with Enter/Space key for accessibility
+        document.addEventListener('keydown', function(e) {
+            if (e.target.classList.contains('scroll-indicator') && (e.key === 'Enter' || e.key === ' ')) {
+                e.preventDefault();
+                scrollToNext();
+            }
+        });
+    </script>
+</body>
+</html>
