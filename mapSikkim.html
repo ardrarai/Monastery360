@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Interactive Map - Monastery360</title>
     
-    <!-- Enhanced Google Fonts for Sikkim Heritage -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -14,12 +13,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
-    <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" 
           integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" 
           crossorigin="" />
     
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -406,6 +403,9 @@
             border-radius: 0 0 15px 15px;
             position: relative;
             overflow: hidden;
+            display: block;
+            text-align: center;
+            text-decoration: none;
         }
 
         .tour-button::before {
@@ -583,11 +583,9 @@
 </head>
 <body class="bg-sikkim-light text-sikkim-dark font-body">
     
-    <!-- Navbar -->
     <nav class="sticky top-0 z-50 bg-white shadow-lg border-b border-sikkim-gold/20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
-                <!-- Logo -->
                 <div class="flex items-center space-x-3">
                     <div class="w-10 h-10 bg-sikkim-primary rounded-full flex items-center justify-center">
                         <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
@@ -596,7 +594,6 @@
                     </div>
                     <h1 class="text-xl font-bold text-sikkim-primary font-monastery">Monastery360</h1>
                 </div>
-                <!-- Navigation -->
                 <div class="hidden md:flex items-center space-x-8">
                     <a href="index.html" class="nav-link">Home</a>
                     <a href="monastery.html" class="nav-link">Monasteries</a>
@@ -604,7 +601,6 @@
                     <a href="calendar.html" class="nav-link">Calendar</a>
                     <a href="archives.html" class="nav-link">Archives</a>
                 </div>
-                <!-- Mobile Menu -->
                 <div class="md:hidden">
                     <button class="text-sikkim-primary hover:text-sikkim-gold">
                         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -616,7 +612,6 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section class="py-16 bg-gradient-to-br from-sikkim-cream via-white to-sikkim-light">
         <div class="max-w-7xl mx-auto px-6 text-center">
             <div class="text-5xl mb-4">🗺️</div>
@@ -630,17 +625,14 @@
         </div>
     </section>
 
-    <!-- Map Section with Right Sidebar -->
     <section class="py-16 bg-white">
         <div class="max-w-7xl mx-auto px-6">
             <div class="map-layout">
-                <!-- Map Container -->
                 <div class="map-container">
                     <div id="loading" class="map-loading">🗺️ Navigating to monastery...</div>
                     <div id="map"></div>
                 </div>
                 
-                <!-- Right Sidebar with Monastery List -->
                 <div class="monastery-sidebar">
                     <div class="sidebar-header">
                         <h2 class="sidebar-title">Sacred Monasteries</h2>
@@ -781,7 +773,6 @@
                 </div>
             </div>
             
-            <!-- Map Legend -->
             <div class="mt-12 grid md:grid-cols-3 gap-6">
                 <div class="bg-sikkim-blue/10 p-6 rounded-xl">
                     <div class="flex items-center mb-3">
@@ -810,7 +801,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="bg-sikkim-dark text-white py-16">
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid md:grid-cols-4 gap-8">
@@ -851,86 +841,87 @@
         </div>
     </footer>
 
-    <!-- Leaflet JavaScript -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" 
             integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" 
             crossorigin="">
     </script>
 
     <script>
-        // Verified Sikkim monasteries data with enhanced information
+        // --- MODIFIED SCRIPT ---
+        
+        // Verified Sikkim monasteries data with unique IDs
         const sikkimMonasteries = [
             {
+                id: "rumtek",
                 name: "Rumtek Monastery",
                 lat: 27.28861,
                 lng: 88.56139,
                 image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600&fit=crop",
-                description: "Also known as Dharma Chakra Centre, Rumtek is the seat in exile of the Gyalwang Karmapa and one of the most important seats of the Kagyu lineage of Tibetan Buddhism outside Tibet. Built in 1966, it's 24km from central Sikkim.",
-                tourLink: "https://maps.app.goo.gl/VbiQn8Hkism3MgRs7"
+                description: "Also known as Dharma Chakra Centre, Rumtek is the seat in exile of the Gyalwang Karmapa and one of the most important seats of the Kagyu lineage of Tibetan Buddhism outside Tibet."
             },
             {
+                id: "phodong",
                 name: "Phodong Monastery",
                 lat: 27.41278,
                 lng: 88.58389,
                 image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800&h=600&fit=crop",
-                description: "Built in the early 18th century, Phodong Monastery is located 28km from Gangtok. It was founded by the 9th Karmapa and houses approximately 260 monks with ancient murals and belongs to the Karma Kagyu school.",
-                tourLink: "https://www.google.com/maps/@27.41278,88.58389,3a,75y,90t/data=!3m8!1e1!3m6!1sAF1QipN-phodong-monastery-360"
+                description: "Built in the early 18th century, Phodong Monastery is located 28km from Gangtok. It was founded by the 9th Karmapa and houses approximately 260 monks with ancient murals."
             },
             {
+                id: "pemayangtse",
                 name: "Pemayangtse Monastery",
                 lat: 27.30444,
                 lng: 88.25278,
                 image: "https://images.unsplash.com/photo-1580500550469-11c86cf7e097?w=800&h=600&fit=crop",
-                description: "Founded in 1647, Pemayangtse means 'Perfect Sublime Lotus' and is one of the oldest and most prestigious monasteries in Sikkim. It belongs to the Nyingma sect and houses the famous Zangdokpalri wooden structure.",
-                tourLink: "https://www.google.com/maps/@27.30444,88.25278,3a,75y,90t/data=!3m8!1e1!3m6!1sAF1QipN-pemayangtse-monastery-360"
+                description: "Founded in 1647, Pemayangtse means 'Perfect Sublime Lotus' and is one of the oldest and most prestigious monasteries in Sikkim. It belongs to the Nyingma sect."
             },
             {
+                id: "dodrul",
                 name: "Do Drul Chorten",
                 lat: 27.3260,
                 lng: 88.6108,
                 image: "https://images.unsplash.com/photo-1590736969955-71cc94901144?w=800&h=600&fit=crop",
-                description: "Built by Trulshik Rinpoche in 1945, this important stupa contains Dorjee Phurba, Kangyur holy books and religious objects. Surrounded by 108 prayer wheels, it's one of the most magnificent stupas in the region.",
-                tourLink: "https://www.google.com/maps/@27.3260,88.6108,3a,75y,90t/data=!3m8!1e1!3m6!1sAF1QipN-dodrul-chorten-360"
+                description: "Built by Trulshik Rinpoche in 1945, this important stupa contains Dorjee Phurba and Kangyur holy books. It's surrounded by 108 prayer wheels."
             },
             {
+                id: "gongjang",
                 name: "Gongjang Monastery",
                 lat: 27.36899,
                 lng: 88.61314,
                 image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop",
-                description: "Established in 1981 at an altitude of 6066 feet, Gongjang Monastery was founded by H.E. Tingkye Gonjang Rinpoche. This modern monastery serves as an important spiritual center for the local Buddhist community.",
-                tourLink: "https://www.google.com/maps/@27.36899,88.61314,3a,75y,90t/data=!3m8!1e1!3m6!1sAF1QipN-gongjang-monastery-360"
+                description: "Established in 1981 at an altitude of 6066 feet, Gongjang Monastery was founded by H.E. Tingkye Gonjang Rinpoche. It serves as an important spiritual center."
             },
             {
+                id: "rey",
                 name: "Rey Monastery",
                 lat: 27.31998,
                 lng: 88.560138,
                 image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600&fit=crop",
-                description: "Also known as Ray Mindu Katen Namgyaling Gonpa, this monastery is located atop a hill between Rumtek and Ranka. Originally functioning as a Manilhakhang, it was established in 1873 by Kagyupa followers.",
-                tourLink: "https://www.google.com/maps/@27.31998,88.560138,3a,75y,90t/data=!3m8!1e1!3m6!1sAF1QipN-rey-monastery-360"
+                description: "Also known as Ray Mindu Katen Namgyaling Gonpa, this monastery is located atop a hill between Rumtek and Ranka. It was established in 1873."
             },
             {
+                id: "durpin",
                 name: "Durpin Monastery",
                 lat: 27.0667,
                 lng: 88.4667,
                 image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800&h=600&fit=crop",
-                description: "Located atop Durpin Dara Hill in Kalimpong, this Tibetan Buddhist monastery was built in 1970 by Dudjom Rinpoche. It houses 108 volumes of Buddhist scriptures (Kangyur) placed by the Dalai Lama and offers stunning Himalayan views.",
-                tourLink: "https://www.google.com/maps/@27.0667,88.4667,3a,75y,90t/data=!3m8!1e1!3m6!1sAF1QipN-durpin-monastery-360"
+                description: "Located atop Durpin Dara Hill in Kalimpong, this Tibetan Buddhist monastery was built in 1970. It houses 108 volumes of Buddhist scriptures (Kangyur)."
             },
             {
+                id: "samdruptse",
                 name: "Samdruptse Monastery",
                 lat: 27.179878,
                 lng: 88.379898,
                 image: "https://images.unsplash.com/photo-1590736969955-71cc94901144?w=800&h=600&fit=crop",
-                description: "Located on Samdruptse hill near Namchi, this site features the world's tallest statue of Guru Padmasambhava at 135 feet. 'Samdruptse' means 'wish-fulfilling hill' and offers spectacular views of the Kanchenjunga range.",
-                tourLink: "https://www.google.com/maps/@27.179878,88.379898,3a,75y,90t/data=!3m8!1e1!3m6!1sAF1QipN-samdruptse-monastery-360"
+                description: "Located on Samdruptse hill, this site features the world's tallest statue of Guru Padmasambhava at 135 feet. 'Samdruptse' means 'wish-fulfilling hill'."
             },
             {
+                id: "dubdi",
                 name: "Dubdi Buddhist Monastery",
                 lat: 27.367,
                 lng: 88.230,
                 image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop",
-                description: "Established in 1701 near Yuksom, Dubdi is the oldest monastery in Sikkim. Built by Lhatsun Namkha Jigme, this Nyingma sect monastery is located on a hilltop and literally means 'the retreat'. It's part of the Buddhist pilgrimage circuit.",
-                tourLink: "https://www.google.com/maps/@27.367,88.230,3a,75y,90t/data=!3m8!1e1!3m6!1sAF1QipN-dubdi-monastery-360"
+                description: "Established in 1701 near Yuksom, Dubdi is the oldest monastery in Sikkim. Built by Lhatsun Namkha Jigme, this Nyingma sect monastery is on a hilltop."
             }
         ];
 
@@ -940,7 +931,7 @@
         var initialView = [27.5330, 88.5122];
         var initialZoom = 9;
 
-        // Initialize the map with enhanced options
+        // Initialize the map
         var map = L.map('map', {
             preferCanvas: true,
             fadeAnimation: true,
@@ -948,154 +939,58 @@
             markerZoomAnimation: true
         }).setView(initialView, initialZoom);
         
-        // Add OpenStreetMap tile layer
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
             attribution: '© <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
         
-        /**
-         * Enhanced navigation function with card highlighting
-         */
         function navigateToMonastery(cardElement, lat, lng, name) {
-            if (!lat || !lng || isNaN(lat) || isNaN(lng)) {
-                console.error('Invalid coordinates provided');
-                return;
-            }
-            
-            // Update card states
+            if (!lat || !lng || isNaN(lat) || isNaN(lng)) return;
             updateActiveCard(cardElement);
-            
-            // Show loading indicator
             const loadingEl = document.getElementById('loading');
             loadingEl.textContent = `🗺️ Flying to ${name}...`;
             loadingEl.style.display = 'block';
-            
-            // Close any existing popups
             map.closePopup();
-            
-            // Calculate optimal offset for popup visibility
-            const mapSize = map.getSize();
-            const offsetY = Math.min(80, mapSize.y * 0.2);
-            
-            // Convert coordinates for precise positioning
             const targetLatLng = L.latLng(lat, lng);
-            const targetPoint = map.project(targetLatLng, 16);
-            const adjustedPoint = targetPoint.subtract([0, offsetY]);
-            const adjustedLatLng = map.unproject(adjustedPoint, 16);
-            
-            // Smooth navigation with enhanced easing
-            map.flyTo(adjustedLatLng, 16, {
-                animate: true,
-                duration: 2.5,
-                easeLinearity: 0.05,
-                noMoveStart: false
-            });
-            
-            // Handle popup opening after animation
+            map.flyTo(targetLatLng, 16, { animate: true, duration: 2.5 });
             map.once('moveend', function() {
                 loadingEl.style.display = 'none';
-                loadingEl.textContent = '🗺️ Navigating to monastery...';
-                
-                setTimeout(() => {
-                    openMonasteryPopupWithOptimalView(lat, lng);
-                }, 200);
+                openMonasteryPopupWithOptimalView(lat, lng);
             });
         }
         
-        /**
-         * Update active card state with animations
-         */
         function updateActiveCard(newActiveCard) {
-            // Remove active state from all cards
-            document.querySelectorAll('.monastery-card').forEach(card => {
-                card.classList.remove('active');
-            });
-            
-            // Add active state to clicked card
+            document.querySelectorAll('.monastery-card').forEach(card => card.classList.remove('active'));
             if (newActiveCard) {
                 newActiveCard.classList.add('active');
                 currentActiveCard = newActiveCard;
             }
         }
         
-        /**
-         * Enhanced popup opening with viewport optimization
-         */
         function openMonasteryPopupWithOptimalView(lat, lng) {
             monasteryMarkers.forEach(marker => {
                 const markerLatLng = marker.getLatLng();
-                
-                if (Math.abs(markerLatLng.lat - lat) < 0.0001 && 
-                    Math.abs(markerLatLng.lng - lng) < 0.0001) {
-                    
-                    // Add marker animation
+                if (Math.abs(markerLatLng.lat - lat) < 0.0001 && Math.abs(markerLatLng.lng - lng) < 0.0001) {
                     const markerElement = marker.getElement();
                     if (markerElement) {
                         markerElement.style.animation = 'gentleBounce 1s ease-out';
-                        setTimeout(() => {
-                            if (markerElement) markerElement.style.animation = '';
-                        }, 1000);
+                        setTimeout(() => { if (markerElement) markerElement.style.animation = ''; }, 1000);
                     }
-                    
-                    // Open popup
                     marker.openPopup();
-                    
-                    // Check popup visibility and adjust if needed
-                    setTimeout(() => {
-                        const popup = marker.getPopup();
-                        if (popup && popup.isOpen()) {
-                            const popupElement = popup.getElement();
-                            if (popupElement) {
-                                const rect = popupElement.getBoundingClientRect();
-                                
-                                // Adjust if popup is cut off at top
-                                if (rect.top < 10) {
-                                    const currentCenter = map.getCenter();
-                                    const adjustedCenter = L.latLng(
-                                        currentCenter.lat - 0.003, 
-                                        currentCenter.lng
-                                    );
-                                    
-                                    map.panTo(adjustedCenter, {
-                                        animate: true,
-                                        duration: 0.6,
-                                        easeLinearity: 0.1
-                                    });
-                                }
-                            }
-                        }
-                    }, 150);
                 }
             });
         }
         
-        /**
-         * Reset to initial view
-         */
         function resetMapView() {
-            // Clear active card states
             updateActiveCard(null);
-            
             map.closePopup();
-            
             const loadingEl = document.getElementById('loading');
             loadingEl.textContent = '🏠 Returning to overview...';
             loadingEl.style.display = 'block';
-            
-            map.flyTo(initialView, initialZoom, {
-                animate: true,
-                duration: 2.0,
-                easeLinearity: 0.1
-            });
-            
-            map.once('moveend', function() {
-                loadingEl.style.display = 'none';
-                loadingEl.textContent = '🗺️ Navigating to monastery...';
-            });
+            map.flyTo(initialView, initialZoom, { animate: true, duration: 2.0 });
+            map.once('moveend', () => { loadingEl.style.display = 'none'; });
         }
         
-        // Enhanced monastery icon with better visibility
         var monasteryIcon = L.icon({
             iconUrl: 'data:image/svg+xml;base64,' + btoa(`
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" fill="#8B2635" width="36" height="36">
@@ -1110,7 +1005,6 @@
             className: 'monastery-marker'
         });
         
-        // Function to create fallback image
         function createFallbackImage() {
             return 'data:image/svg+xml;base64,' + btoa(`
                 <svg width="380" height="180" viewBox="0 0 380 180" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1121,13 +1015,12 @@
             `);
         }
         
-        // Enhanced marker creation with optimal popup settings
         function addMonasteryMarkers(map, monasteries) {
-            monasteries.forEach(function(monastery, index) {
-                const shortDescription = monastery.description.length > 150 ? 
-                    monastery.description.substring(0, 150) + '...' : 
-                    monastery.description;
+            monasteries.forEach(function(monastery) {
+                const shortDescription = monastery.description.substring(0, 150) + '...';
                 
+                // --- MODIFICATION HERE ---
+                // The button is now an <a> tag linking to monastery.html with the correct ID
                 const popupContent = `
                     <div class="monastery-popup">
                         <h3>${monastery.name}</h3>
@@ -1136,11 +1029,12 @@
                              class="monastery-image"
                              onerror="this.src='${createFallbackImage()}';this.onerror=null;" />
                         <p class="monastery-description">${shortDescription}</p>
-                        <button class="tour-button" 
-                                type="button" 
-                                onclick="event.preventDefault(); event.stopPropagation(); window.open('${monastery.tourLink}', '_blank', 'noopener,noreferrer');">
+                        <a href="monastery.html?id=${monastery.id}" 
+                           class="tour-button" 
+                           target="_blank" 
+                           rel="noopener noreferrer">
                             🗺️ View Virtual Tour
-                        </button>
+                        </a>
                     </div>
                 `;
                 
@@ -1154,7 +1048,6 @@
                         autoPan: true,
                         autoPanPaddingTopLeft: L.point(10, 80),
                         autoPanPaddingBottomRight: L.point(10, 10),
-                        className: 'custom-popup-container',
                         offset: L.point(0, -8)
                     });
                 
@@ -1162,62 +1055,24 @@
             });
         }
         
-        // Initialize monasteries
         addMonasteryMarkers(map, sikkimMonasteries);
         
-        // Enhanced popup event handling
-        map.on('popupopen', function(e) {
-            const popup = e.popup;
-            const popupElement = popup.getElement();
-            
-            const tourButton = popupElement.querySelector('.tour-button');
-            if (tourButton) {
-                tourButton.removeEventListener('click', handleTourClick);
-                tourButton.addEventListener('click', handleTourClick);
-            }
-        });
-        
-        // Handle popup close to reset active card
         map.on('popupclose', function(e) {
             updateActiveCard(null);
         });
         
-        function handleTourClick(event) {
-            event.preventDefault();
-            event.stopPropagation();
-            
-            const onclickAttr = this.getAttribute('onclick');
-            if (onclickAttr) {
-                const urlMatch = onclickAttr.match(/window\.open\('([^']+)'/);
-                if (urlMatch && urlMatch[1]) {
-                    window.open(urlMatch[1], '_blank', 'noopener,noreferrer');
-                }
-            }
-        }
-        
-        // Add scroll behavior to sidebar
         document.addEventListener('DOMContentLoaded', function() {
-            const sidebar = document.querySelector('.monastery-sidebar');
             const cards = document.querySelectorAll('.monastery-card');
-            
-            // Add stagger animation to cards on load
             cards.forEach((card, index) => {
                 card.style.animationDelay = `${index * 0.1}s`;
                 card.style.animation = 'fadeInUp 0.6s ease-out forwards';
             });
         });
         
-        // CSS for card entrance animation
         const fadeInUpKeyframes = `
             @keyframes fadeInUp {
-                from {
-                    opacity: 0;
-                    transform: translateY(20px);
-                }
-                to {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
+                from { opacity: 0; transform: translateY(20px); }
+                to { opacity: 1; transform: translateY(0); }
             }
         `;
         
@@ -1225,8 +1080,7 @@
         style.textContent = fadeInUpKeyframes;
         document.head.appendChild(style);
         
-        console.log('🏛️ Enhanced Sikkim Monasteries Map with Right Sidebar loaded successfully!');
-        console.log('✨ Featuring 9 verified monasteries with animated interactions and beautiful design');
+        console.log('🏛️ Enhanced Sikkim Monasteries Map loaded successfully!');
     </script>
 </body>
 </html>
